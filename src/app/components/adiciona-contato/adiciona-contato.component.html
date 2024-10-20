@@ -1,0 +1,70 @@
+<nav>
+    <h1>MINHA AGENDA</h1>
+</nav>
+<main>
+    <h2>Adicionar Contato</h2>
+    <div class="sucesso" *ngIf="mensagem === 'usuário cadastrado'"> <!-- div vai aparecer apenas se a mensagem for de usuário cadastrado -->
+        {{mensagem}}
+    </div>
+    <div class="erro" *ngIf="mensagem !== 'usuário cadastrado' && mensagem !== ''"> <!-- div vai aparecer se a mensagem for diferente de usuário cadastrado, ou seja, uma das mensagens de erro -->
+        {{mensagem}}
+    </div>
+    <form action="">
+        <div class="form-control">
+            <label for="nomeInput">*Nome:</label>
+            <input type="text" name="nomeInput" id="input1" #nome>
+        </div>
+
+        <div class="form-control">
+            <label for="contatoInput">*Numero:</label>
+            <input type="tel" name="contatoInput"  id="input2" #numero placeholder="(xx) xxxxx-xxxx" >
+        </div>
+
+        <div class="form-control">
+            <label for="emailInput">Email:</label>
+            <input type="email" name="emailInput" id="" placeholder="exemplo@gmail.com" #email >
+        </div>
+
+        <div class="form-control">
+            <label for="inputAniversário">Aniversário:</label>
+            <input type="date" name="inputAniversário" id="" #aniversario>
+        </div>
+
+        <div class="form-control">
+            <label for="selectTipo">Tipo:</label>
+            <select name="selectTipo" id="" #tipoContato>
+                <option value="">---</option> <!-- opcão vazia caso o usuário não queira adicionar o tipo -->
+                <option value="{{tipo}}" *ngFor="let tipo of tipos" >{{tipo}}</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <input type="button" value="adicionar contato" class="buttonCadastrar" (click)="cadastrarContato(nome.value, numero.value, email.value, aniversario.value, tipoContato.value)">
+        </div>
+    </form>
+
+
+    <div class="tabelaDeContatos">
+        <h1>SEUS CONTATOS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Número</th>
+                    <th>Email</th>
+                    <th>Aniversário</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contato of getContatos()">
+                    <th>{{contato.exibirNome()}}</th>
+                    <th>{{contato.exibirTelefone()}}</th>
+                    <th>{{contato.exibirEmail()}}</th>
+                    <th>{{contato.exibirAniversario()}}</th>
+                    <th>{{contato.exibirTipo()}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
