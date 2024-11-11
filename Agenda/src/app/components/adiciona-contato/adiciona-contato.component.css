@@ -70,67 +70,7 @@ form {
 .form-control input[type="button"]:hover {
     background-color: #218838;
 }
-.tabelaDeContatos {
-    margin-top: 2rem;
-}
 
-.tabelaDeContatos h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-thead {
-    background-color: #202020;
-    color: white;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tbody tr:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
-}
-
-tbody tr:last-child td {
-    border-bottom: none;
-}
-
-tbody td {
-    transition: background-color 0.3s ease;
-    background-color: #f9f9f9;
-}
-
-.erro, .sucesso{
-    text-align: center;
-    margin: 1rem 0 1rem 0;
-    border-radius: 7px;
-    height: 1.5rem;
-    font-size: 1.1rem;
-}
 
 .erro{
     background-color: #ff3b3b;
@@ -140,13 +80,34 @@ tbody td {
     background-color: #28a745;
 }
 
+.erro, .sucesso{
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    border-radius: 7px;
+    height: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input[type="checkbox"] {
+    background-color: blue;
+    border: 2px solid red;
+    margin-bottom: 2vw;
+  }
+
 
 @media (max-width: 768px) {
     main {
         padding: 1rem;
     }
 
-    th, td {
-        padding: 0.75rem;
-    }
 }

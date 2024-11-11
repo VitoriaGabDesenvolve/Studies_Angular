@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { Contato, TipoContato } from './models/Contato';
-import { Agenda } from './models/Agenda';
+import { Contato, TipoContato } from '../models/Contato';
+import { AgendaService } from '../services/agenda.service';
 
 @Component({
   selector: 'app-adiciona-contato',
   templateUrl: './adiciona-contato.component.html',
   styleUrl: './adiciona-contato.component.css'
 })
+
 export class AdicionaContatoComponent {
-  agenda: Agenda = new Agenda(); //inicia a agenda
+  constructor(public agenda: AgendaService){
+
+  }
+  
   tipos = Object.values(TipoContato) // tipos pega os valores do Enum
   // contatos pega os valores que retorna a lista de numeros na lista de contatos 
   mensagem: string = ""
@@ -35,7 +39,7 @@ export class AdicionaContatoComponent {
     return data
   }
 
-  cadastrarContato(nome: string, numero: string, email?: string, aniversario?: string, tipo?: string){
+  cadastrarContato(nome: string, numero: string, favorito: boolean, email?: string, aniversario?: string, tipo?: string, ){
     this.mensagem = ""
     for (let contato of this.getContatos()){ //percorre pela lista de contatos
       if (contato.exibirTelefone() === numero){ //verifica se já possui um contato com o número digitado
@@ -48,7 +52,7 @@ export class AdicionaContatoComponent {
         this.mensagem = "o número deve conter no mínimo 11 dígitos"
         return
       }
-      const novoContato = new Contato(nome, numero, email, this.formatDate(aniversario), this.getTipo(tipo)) //cria novo contato
+      const novoContato = new Contato(nome, numero, email, this.formatDate(aniversario), this.getTipo(tipo), favorito) //cria novo contato
       this.agenda.cadastrarContato(novoContato) // adiciona na agenda
       this.mensagem = "usuário cadastrado"
     } else if (nome) {

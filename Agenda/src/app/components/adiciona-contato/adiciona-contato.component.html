@@ -38,33 +38,14 @@
             </select>
         </div>
 
+        <div class="caixa-favoritar">
+            <label for="favorito">Favorito: </label>
+            <input type="checkbox" name="favorito" id="favorito" #favorito>
+        </div>
+
         <div class="form-control">
-            <input type="button" value="adicionar contato" class="buttonCadastrar" (click)="cadastrarContato(nome.value, numero.value, email.value, aniversario.value, tipoContato.value)">
+            <input type="button" value="adicionar contato" class="buttonCadastrar" (click)="cadastrarContato(nome.value, numero.value, favorito.checked, email.value, aniversario.value, tipoContato.value)">
         </div>
     </form>
 
-
-    <div class="tabelaDeContatos">
-        <h1>SEUS CONTATOS</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Número</th>
-                    <th>Email</th>
-                    <th>Aniversário</th>
-                    <th>Tipo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let contato of getContatos()">
-                    <th>{{contato.exibirNome()}}</th>
-                    <th>{{contato.exibirTelefone()}}</th>
-                    <th>{{contato.exibirEmail()}}</th>
-                    <th>{{contato.exibirAniversario()}}</th>
-                    <th>{{contato.exibirTipo()}}</th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 </main>

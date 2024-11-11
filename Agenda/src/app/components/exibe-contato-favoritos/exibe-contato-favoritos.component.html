@@ -1,0 +1,28 @@
+
+<div class="container">
+    <div class="tabelaDeContatos">
+        <h1>SEUS CONTATOS FAVORITOS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Número</th>
+                    <th>Email</th>
+                    <th>Aniversário</th>
+                    <th>Tipo</th>
+                    <th>Favorito</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contato of getContatosFavoritos()">
+                    <th>{{contato.exibirNome()}}</th>
+                    <th>{{contato.exibirTelefone()}}</th>
+                    <th>{{contato.exibirEmail()}}</th>
+                    <th>{{contato.exibirAniversario()}}</th>
+                    <th>{{contato.exibirTipo()}}</th>
+                    <th>{{contatosFavoritosEmoji(contato)}}</th>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+</div>

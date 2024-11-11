@@ -1,0 +1,61 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabelaDeContatos {
+  margin-top: 2rem;
+}
+
+.tabelaDeContatos h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+table {
+  width: 70vw;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+thead {
+  background-color: #202020;
+  color: white;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody td {
+  transition: background-color 0.3s ease;
+  background-color: #f9f9f9;
+}
